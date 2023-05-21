@@ -9,7 +9,7 @@ output_dir = "output_images"
 output_image = None
 
 def main():
-    st.title("Machine Vision")
+    st.title("Computer Vision")
     menu = st.sidebar.selectbox("Menu", ("Chuong3", "Chuong4", "Chuong5", "Chuong9"))
 
     if menu == "Chuong3":
