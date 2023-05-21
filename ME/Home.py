@@ -39,7 +39,7 @@ st.markdown(
 st.markdown(
     """
     <div class="red-text">
-        Hello! Thank you for visiting my website. Here are the projects I have learned through the Machine Learning and Machine Vision courses taught by Mr. Tran Tien Duc.
+        Hello! Thank you for visiting my website. Here are the projects I have learned through the Machine Learning and Computer Vision courses taught by Mr. Tran Tien Duc.
         This website is created for the purpose of reporting the final projects for these two courses and is only used for educational purposes.
         👉 You can choose one of the projects I have learned on the left side.
          <p><b style="font-size: 40px;">Personal Information:</b></p>
