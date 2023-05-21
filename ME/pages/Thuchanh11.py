@@ -3,27 +3,28 @@ import cv2
 import numpy as np
 import Chuong3 as c3
 import os
-import shutil
 
-output_dir = "output_images"
-output_image = None
+class SessionState(object):
+    def __init__(self):
+        self.imgin = None
+        self.imgout = None
 
 def main():
-    st.title("Computer Vision")
+    session_state = SessionState()
+
+    st.title("Machine Vision")
     menu = st.sidebar.selectbox("Menu", ("Chuong3", "Chuong4", "Chuong5", "Chuong9"))
 
     if menu == "Chuong3":
-        chuong3()
+        chuong3(session_state)
 
-def chuong3():
-    global output_image
-
+def chuong3(session_state):
     st.subheader("Chương 3")
     file_uploaded = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png", "tif"])
 
     if file_uploaded is not None:
         image = np.array(bytearray(file_uploaded.read()), dtype=np.uint8)
-        imgin = cv2.imdecode(image, cv2.IMREAD_GRAYSCALE)
+        session_state.imgin = cv2.imdecode(image, cv2.IMREAD_GRAYSCALE)
 
         col1, col2, col3 = st.columns([3, 3, 2])
 
@@ -32,30 +33,27 @@ def chuong3():
 
         with col1:
             st.subheader("Input Image")
-            st.image(imgin, use_column_width=True)
+            st.image(session_state.imgin, use_column_width=True)
 
         with col3:
             st.subheader("Buttons")
 
             if st.button("Apply Negative"):
-                imgout = c3.Negative(imgin)
-                output_image = imgout
-                display_image(col2, imgout, "Negative Image")
+                session_state.imgout = c3.Negative(session_state.imgin)
+                display_image(col2, session_state.imgout, "Negative Image")
 
             if st.button("Apply Logarithmic"):
-                imgout = c3.Logarit(imgin)
-                output_image = imgout
-                display_image(col2, imgout, "Logarithmic Image")
+                session_state.imgout = c3.Logarit(session_state.imgin)
+                display_image(col2, session_state.imgout, "Logarithmic Image")
 
             if st.sidebar.button("Save Image"):
-                if output_image is not None:
-                    save_image(output_image)
+                if session_state.imgout is not None:
+                    save_image(session_state.imgout)
                 else:
                     st.sidebar.warning("Không có ảnh đầu ra để lưu.")
 
 def save_image(image):
     output_folder = st.sidebar.text_input("Nhập đường dẫn đến thư mục:", placeholder="path/to/output/folder")
-    output_folder = output_folder.replace("\\", "/")
 
     if output_folder:
         if os.path.isdir(output_folder):
@@ -72,11 +70,4 @@ def display_image(column, img, caption):
     column.image(img, caption, use_column_width=True)
 
 if __name__ == "__main__":
-    # Xóa thư mục tạm nếu tồn tại
-    if os.path.isdir(output_dir):
-        shutil.rmtree(output_dir)
-    
-    # Tạo thư mục tạm
-    os.makedirs(output_dir)
-    
     main()
