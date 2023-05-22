@@ -39,30 +39,9 @@ st.markdown(
 st.markdown(
     """
     <div class="red-text">
-        Hello! Thank you for visiting my website. Here are the projects I have learned through the Machine Learning and Computer Vision courses taught by Mr. Tran Tien Duc.
-        This website is created for the purpose of reporting the final projects for these two courses and is only used for educational purposes.
+        Hello! Thank you for visiting my website. Here are the projects I have learned through the Machine Learning and Image Processing courses.
+        This website is created for the purpose of reporting the final projects for these courses and is only used for educational purposes.
         👉 You can choose one of the projects I have learned on the left side.
-         <p><b style="font-size: 40px;">Personal Information:</b></p>
-        <div>
-	- Full name: Nguyen Tran Anh Thu</p>
-        - Student code: 21146157</p>
-        - School name: HCMC University of Technology and Education
-        </div>
-	<p><b style="font-size: 40px;">Contact me:</b></p>
-	<div>
-        <p>- Github: <a style="color:green" href="https://github.com/leedongzheo">https://github.com/leedongzheo</a></p>
-        <p>- Facebook:<a style="color:green" href="https://www.facebook.com/anhthu.nguyentran.142035"> https://www.facebook.com/anhthu.nguyentran.142035</a></p>
-        <p>- Email: <a style="color:green" href="leedongzheo@gmail.com"> leedongzheo@gmail.com</a></p>
-        <p>- Phone: <a style="color:green" href="0916870014"> 0916870014</a></p>
-	</div>
-	<p><b style="font-size: 40px;">Instructor Information:</b></p>
-   	<div>
-        <p>- Teacher: Tran Tien Duc</p>
-        <p>- Email:<a style="color:green" href="ductt@hcmute.edu.vn"> ductt@hcmute.edu.vn</a></p>
-        <p>- Phone:<a style="color:green" href="ductt@hcmute.edu.vn"> 0919622862</a></p>
-        <p>- Github: <a style="color:green" href="https://github.com/TranTienDuc">https://github.com/TranTienDuc</a><p>
-	</div>
     </div>
-    """,
-    unsafe_allow_html=True
+    """
 )
